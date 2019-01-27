@@ -1,5 +1,5 @@
 accio() {
-  if [ -n $1 ]; then
+  if [ -n "$1" ]; then
     echo "$(pwd)"
     grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -HIirn "$1" .
   else
