@@ -1,0 +1,59 @@
+accio() {
+  echo "$(pwd)"
+  grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -HIirn "$1" .
+}
+alohomora() {
+  if [ -n $1 ]
+  then
+    sudo chown -R $USER $1
+  else
+    sudo chown -R $USER .
+  fi
+}
+geminio() {
+  filename=$(basename $1)
+  extension="${filename##*.}"
+  filename="${filename%.*}"
+  posfix="_copy"
+  tail=$posfix
+  directory=$(dirname $1)
+  new_filename="$filename$tail.$extension"
+  while [ -f "$directory/$new_filename" ]; do
+    tail="$tail$posfix"
+    new_filename="$filename$tail.$extension"
+  done
+  cp $1 "$directory/$new_filename"
+}
+lumos() {
+  if [ -n $1 ]; then
+    if [ -d $1 ]; then
+      ls -al $1
+    elif [ -f $1 ]; then
+      cat $1
+    fi
+  else
+    ls -al
+  fi
+}
+alias avadakedavra='kill -9'
+alias bombarda='echo "💣"'
+alias gemino='geminio'
+alias impedimenta='renice +20'
+alias imperio='ssh'
+alias incendio='echo "🔥"'
+alias legilimens='top'
+alias lumossolen='echo "☀️"'
+alias muffliato='open spotify:track:3n3Ppam7vgaVa1iaRUc9Lp:autoplay:1'
+alias nox='clear'
+alias obliviate='rm -rf'
+alias pack='tar -cvzf'
+alias polyjuice='su -l'
+alias priorincantato='!-1'
+alias repelomuggletum='open https://calendar.google.com/'
+alias revelio='lumos'
+alias scourdify='clear'
+alias serpensortia='echo "🐍"'
+# GNU/Linux distros: alias silencio='amixer -c 0 set Master playback 0% mute'
+alias silencio="osascript -e 'set volume output muted true'"
+alias sonorus="osascript -e 'set volume output muted false'"
+
