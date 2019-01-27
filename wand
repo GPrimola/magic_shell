@@ -1,6 +1,10 @@
 accio() {
-  echo "$(pwd)"
-  grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -HIirn "$1" .
+  if [ -n $1 ]; then
+    echo "$(pwd)"
+    grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -HIirn "$1" .
+  else
+    echo "You must supply a term to search"
+  fi
 }
 alohomora() {
   if [ -n $1 ]

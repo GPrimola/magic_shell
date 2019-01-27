@@ -1,19 +1,20 @@
 
-curl --output ~/.wand
+curl https://raw.githubusercontent.com/GPrimola/magic_shell/master/wand --output ~/.wand
 
-install="#######################################"\
-"# This section loads Magic Shell 🥢💻 #"\
-"##################################### #"\
-"export MAGIC_SHELL='~/.wand'"\
-"if [ -f $MAGIC_SHELL ]; then"\
-"  source $MAGIC_SHELL"\
-"fi"\
-""
+install="\n"\
+"#######################################\n"\
+"# This section loads Magic Shell 🥢💻 #\n"\
+"##################################### #\n"\
+"export MAGIC_SHELL='~/.wand'\n"\
+"if [ -f ~/.wand ]; then\n"\
+"  source ~/.wand\n"\
+"fi\n"\
+"\n"
 
 if [ -f ~/.zshrc ]; then
-  echo install >> ~/.zshrc
+  echo $install >> ~/.zshrc
 elif [ -f ~/.bashrc ]; then
-  echo install >> ~/.bashrc
+  echo $install >> ~/.bashrc
 else
   echo "Could not install Magic Shell. Verify if your shell is either zsh or bash"
 fi
