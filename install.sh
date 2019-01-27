@@ -2,8 +2,8 @@
 curl https://raw.githubusercontent.com/GPrimola/magic_shell/master/wand --output ~/.wand
 
 install="\n"\
-"export MAGIC_SHELL='~/.wand'\n"\
-"[ -f ~/.wand ] && source ~/.wand # This loads Magic Shell 🥢💻\n"
+"export MAGIC_SHELL="$HOME/.wand"\n"\
+"[ -s \$MAGIC_SHELL ] && source ~/.wand # This loads Magic Shell 🥢💻\n"
 
 if [ -f ~/.zshrc ]; then
   echo $install >> ~/.zshrc
