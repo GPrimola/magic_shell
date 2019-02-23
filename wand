@@ -1,6 +1,6 @@
 accio() {
   if [ -n "$1" ]; then
-    echo "$(pwd)"
+    echo -e "Looking for '\033[0m$1\033[0m' under '\033[0m$(pwd)\033[0m'"
     grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -HIirn "$1" .
   else
     echo "You must supply a term to search"
